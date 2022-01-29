@@ -144,3 +144,5 @@ kubectl get pods -- check after pod status is completed
 Check logs now.
 
 kubectl logs pod_name -- It will pring 10 9 8 and a
+
+[link to check the above command](https://askubuntu.com/questions/831847/what-is-the-sh-c-command)
