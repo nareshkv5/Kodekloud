@@ -47,7 +47,8 @@ spec:
         ]
       volumeMounts:
         - name: shared-logs
-          mountPath: /var/log/nginx
+          mountPath: /var/log/nginx 	
+
 
 #### kubectl create -f /tmp/webserver.yaml --> execute the command to run the yaml file 
 #### kubectl get po -o wide
