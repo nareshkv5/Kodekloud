@@ -21,6 +21,8 @@ Note: The kubectl utility on jump_host has been configured to work with the kube
 #### vi /tmp/webserver.yaml --> to create a pod with name webserver
 #### Below is the Yaml file
 
+```yaml file
+
 apiVersion: v1
 kind: Pod
 metadata:
@@ -47,8 +49,8 @@ spec:
         ]
       volumeMounts:
         - name: shared-logs
-          mountPath: /var/log/nginx 	
-
+          mountPath: /var/log/nginx
+```
 
 #### kubectl create -f /tmp/webserver.yaml --> execute the command to run the yaml file 
 #### kubectl get po -o wide
