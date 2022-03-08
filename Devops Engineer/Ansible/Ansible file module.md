@@ -24,7 +24,7 @@ stapp03 ansible_host=172.16.238.12 ansible_ssh_pass=BigGr33n  ansible_user=banne
 ```
 cat inventory to view the file details
 
-ansible all -a "ls -lsd /home/web.txt" -i inventory  -- command to view to check inventory file working or not
+ansible all -a "ls -lsd /home/opt.txt" -i inventory  -- command to view to check inventory file working or not
 
 since there is no file and directory we won't get the output
 
@@ -39,7 +39,7 @@ Create a playbook with the below ansible code vi playbook.yml
         path: /home/opt.txt
         owner: "{{ ansible_user }}"
         group: "{{ ansible_user }}"
-        mode: "0755"
+        mode: "0777"
         state: touch
 ```
 ansible-playbook -i inventory playbook.yml -- execute the command to execute the tasks mentioned in playbook by using inventory file
