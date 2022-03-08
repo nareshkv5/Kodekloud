@@ -36,7 +36,7 @@ Create a playbook with the below ansible code vi playbook.yml
   tasks:
     - name: create file and set properties
       file:
-        path: /home/web.txt
+        path: /home/opt.txt
         owner: "{{ ansible_user }}"
         group: "{{ ansible_user }}"
         mode: "0755"
