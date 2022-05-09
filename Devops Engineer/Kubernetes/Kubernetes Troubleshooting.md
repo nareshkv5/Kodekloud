@@ -6,3 +6,12 @@ from the template like pods/deployments/volumes etc.
 /home/thor/mysql_deployment.yml is the template that needs to be fixed.
 
 Note: The kubectl utility on jump_host has been configured to work with the kubernetes cluster.
+
+Please check first all the resources or objects with below command
+```
+kubectl get all
+```
+And then try to create the deployment and check we will come to know the errors.
+```
+kubectl create -f mysql_deployment.yml
+```
