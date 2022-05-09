@@ -16,3 +16,4 @@ And then try to create the deployment and check we will come to know the errors.
 ```
 kubectl create -f mysql_deployment.yml
 ```
+There were issues with PV object and pvc object where apiVersion is mentioned wrongly need to correct that. And the size 250Mi is mentioned as 250MB in pvc claim object need to correct that as well. Like this there are indentation issues have attached the wrong yaml file and validated yaml. Please find
