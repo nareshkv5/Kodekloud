@@ -18,9 +18,9 @@ kubectl get svc
 kubectl get configmap
 kubectl logs nginx-phpfpm-dp-5cccd45499-hmgfp -c php-fpm-container
 ```
--- To check the logs of pod for a specific container since there are two container used one is nginx-container other is php-fpm-container.
+- To check the logs of pod for a specific container since there are two container used one is nginx-container other is php-fpm-container.
 
--- If you notice in configmap nginx port is set to default 80. As per task nginx port is using default so edit the service and modify the port of nginx from 8092 
+- If you notice in configmap nginx port is set to default 80. As per task nginx port is using default so edit the service and modify the port of nginx from 8092 
    to default 80. And there is space between index.php file modify that as well.
 
 ttp {
@@ -39,22 +39,22 @@ ttp {
       include fastcgi_params;
       
       
- -- To edit the service and change the port number of nginx service to 80 where ever 8091 is there use the below commands
+ - To edit the service and change the port number of nginx service to 80 where ever 8091 is there use the below commands
  
  ```
  kubectl rollout restart deployment nginx-phpfpm-dp
  kubectl get svc
  kubectl edit service nginx-service
  ```
- --- Post changing check the changes whether it's reflecting or not.
+ - Post changing check the changes whether it's reflecting or not.
  
- -- copy php file in nginx container as per the task
+ - copy php file in nginx container as per the task
  
  ```
  kubectl cp /tmp/index.php nginx-phpfpm-dp-5cccd45499-hmgfp:/var/www/html -c nginx-container
  ```
  
- --- Login to nginx-container and check whether index.php file is copied or not with the below command
+ - Login to nginx-container and check whether index.php file is copied or not with the below command
  
  ```
  kubectl exec -it nginx-phpfpm-dp-5cccd45499-hmgfp -c nginx-container -- bash
