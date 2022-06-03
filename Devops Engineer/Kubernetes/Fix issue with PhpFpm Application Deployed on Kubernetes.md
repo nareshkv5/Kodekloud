@@ -42,6 +42,7 @@ ttp {
  -- To edit the service and change the port number of nginx service to 80 where ever 8091 is there use the below commands
  
  ```
+ kubectl rollout restart deployment nginx-phpfpm-dp
  kubectl get svc
  kubectl edit service nginx-service
  ```
@@ -57,5 +58,6 @@ ttp {
  
  ```
  kubectl exec -it nginx-phpfpm-dp-5cccd45499-hmgfp -c nginx-container -- bash
+ 
  ```
  
