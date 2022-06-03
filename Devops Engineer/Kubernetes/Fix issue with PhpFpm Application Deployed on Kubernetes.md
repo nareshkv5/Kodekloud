@@ -21,7 +21,7 @@ kubectl logs nginx-phpfpm-dp-5cccd45499-hmgfp -c php-fpm-container
 -- To check the logs of pod for a specific container since there are two container used one is nginx-container other is php-fpm-container.
 
 -- If you notice in configmap nginx port is set to default 80. As per task nginx port is using default so edit the service and modify the port of nginx from 8092 
-   to default 80.
+   to default 80. And there is space between index.php file modify that as well.
 
 ttp {
   server {
