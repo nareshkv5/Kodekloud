@@ -13,9 +13,11 @@ Notes: :- Please make sure to run the puppet agent test using sudo on agent node
 
 - Login to the below directory from thor as root user and change directory (cd /etc/puppetlabs/code/environments/production/manifests) folder and create media.pp file
 
-- And copy the below code to it.
+- And copy the below code to media.pp file
 
--- class user_creator {
+
+```
+ class user_creator {
 user { 'john':
 ensure   => present,
 uid => 1752,
@@ -24,6 +26,7 @@ uid => 1752,
 node 'stapp01.stratos.xfusioncorp.com', 'stapp02.stratos.xfusioncorp.com', 'stapp03.stratos.xfusioncorp.com' {
   include user_creator
 }
+```
 
 - Then run the below command to test and validate the media.pp puppet file
 
