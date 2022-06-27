@@ -13,3 +13,49 @@ After creating the pod, exec into the first container i.e volume-container-xfusi
 The file beta.txt should be present under the mounted path /tmp/cluster on the second container volume-container-xfusion-2 as well, since they are using a shared volume.
 
 Note: The kubectl utility on jump_host has been configured to work with the kubernetes cluster.
+
+- Please find the below volume.yaml file:
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: volume-share-datacenter
+  labels:
+    name: myapp
+spec:
+  volumes:
+    - name: volume-share
+      emptyDir: {}
+  containers:
+    - name: volume-container-datacenter-1
+      image: debian:latest
+      command: ["/bin/bash", "-c", "sleep 10000"]
+      volumeMounts:
+        - name: volume-share
+          mountPath: /tmp/beta
+    - name: volume-container-datacenter-2
+      image: debian:latest
+      command: ["/bin/bash", "-c", "sleep 10000"]
+      volumeMounts:
+        - name: volume-share
+          mountPath: /tmp/cluster
+```
+- kubectl create -f /tmp/volume.yaml -- Creating the yaml file
+- kubectl get pods - Viewing the created pods
+- kubectl get pods -o wide - to view complete details of pod
+- Creating a container and logging into it
+```
+kubectl exec -it volume-share-datacenter -c volume-container-datacenter-1 -- /bin/bash
+```
+- Post logging into above container create file as below under volume
+```
+ echo "Welcome to Xfusion industries" > /tmp/beta/beta.txt
+ ```
+ - Now exit from container by giving exit command
+ - Now validate the text file existed or not by creating second container since it's a shared volume concept
+ ```
+ kubectl exec -it volume-share-datacenter -c volume-container-datacenter-2 -- ls /tmp/cluster
+ ```
+ - you will be able to view beta.txt. That's it shared volume for two containers task has been completed.
+
