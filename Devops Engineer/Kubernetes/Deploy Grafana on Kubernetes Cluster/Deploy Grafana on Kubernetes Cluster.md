@@ -12,3 +12,6 @@ You need not to make any configuration changes inside the Grafana app once deplo
 Note: The kubeclt on jump_host has been configured to work with kubernetes cluster.
 
 - kubectl get pods 
+- kubectl get service
+- Post that create grafana.yaml in tmp folder as below. Yaml code attached in separate file.
+- vi /tmp/grafana.yaml
