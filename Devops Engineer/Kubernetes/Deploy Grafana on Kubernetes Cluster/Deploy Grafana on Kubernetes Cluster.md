@@ -15,3 +15,9 @@ Note: The kubeclt on jump_host has been configured to work with kubernetes clust
 - kubectl get service
 - Post that create grafana.yaml in tmp folder as below. Yaml code attached in separate file.
 - vi /tmp/grafana.yaml
+- cat /tmp/grafana.yaml
+- kubectl create -f /tmp/grafana.yaml
+- kubectl get service
+- kubectl get pods make sure the pod are in running status.
+- Just click grafana icon on the top right to view the grafana running status.
+- Further your task is finished. Please click on check and finish the task
