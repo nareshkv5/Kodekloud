@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: grafana-service-nautilus
+  name: grafana-service-xfusion
 spec:
   type: NodePort
   selector:
@@ -14,7 +14,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: grafana-deployment-nautilus
+  name: grafana-deployment-xfusion
 spec:
   selector:
     matchLabels:
@@ -25,7 +25,7 @@ spec:
         app: grafana
     spec:
       containers:
-        - name: grafana-container-nautilus
+        - name: grafana-container-xfusion
           image: grafana/grafana:latest
           ports:
             - containerPort: 3000
