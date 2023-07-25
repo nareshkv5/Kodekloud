@@ -1371,3 +1371,38 @@ timedatectl set-timezone Africa/Bujumbura -- Execute the command in all servers 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 Linux Timezones Setting 10/Jan/2022
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+25/07/2023 - Create groups and add users under that group
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+There are specific access levels for users defined by the xFusionCorp Industries system admin team. Rather than providing access levels to every individual user, the team has decided to create groups with required access levels and add users to that groups as needed. See the following requirements:
+
+a. Create a group named nautilus_admin_users in all App servers in Stratos Datacenter.
+
+b. Add the user kano to nautilus_admin_users group in all App servers. (create the user if doesn't exist).
+
+Need to ssh in all app servers and create group first and then add the user as below 
+
+getent group -- to view the existing groups
+
+sudo groupadd nautilus_admin_users 
+
+sudo useradd -g nautilus_admin_users kano
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Create a user and set uid for that user in a directory 25/July/2023
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+For security reasons the xFusionCorp Industries security team has decided to use custom Apache users for each web application hosted, rather than its default user. This will be the Apache user, so it shouldn't use the default home directory. Create the user as per requirements given below:
+
+a. Create a user named anita on the App server 3 in Stratos Datacenter.
+
+b. Set its UID to 1462 and home directory to /var/www/anita.
+
+Login to stapp03 as below and use the below command to create user
+
+ssh banner@ip_address of stapp03 then provide the password
+
+sudo useradd -d /var/www/anita anita -u 1462
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
