@@ -74,4 +74,29 @@ kubectl rollout undo deployment nginx-deployment -- This will move to previous d
 kubectl rollout history deployment nginx-deployment -- will shows the deployment history
 kubectl rollout --help will show the options for rollout
 ```
+Q) The Nautilus DevOps team has started practicing some pods, and services deployment on Kubernetes platform, as they are planning to migrate most of their applications on Kubernetes. Recently one of the team members has been assigned a task to create a deploymnt as per details mentioned below:
+
+Create a deployment named nginx to deploy the application nginx using the image nginx:latest (remember to mention the tag as well)
+
+Note: The kubectl utility on jump_host has been configured to work with the kubernetes cluster.
+
+```
+kubectl create deployment nginx --image=nginx:latest 
+```
+25/07/2023 - Create groups and add users under that group
+
+Q)There are specific access levels for users defined by the xFusionCorp Industries system admin team. Rather than providing access levels to every individual user, the team has decided to create groups with required access levels and add users to that groups as needed. See the following requirements:
+
+a. Create a group named nautilus_admin_users in all App servers in Stratos Datacenter.
+
+b. Add the user kano to nautilus_admin_users group in all App servers. (create the user if doesn't exist).
+
+Need to ssh in all app servers and create group first and then add the user as below 
+```
+getent group -- to view the existing groups
+
+sudo groupadd nautilus_admin_users 
+
+sudo useradd -g nautilus_admin_users kano
+```
 
