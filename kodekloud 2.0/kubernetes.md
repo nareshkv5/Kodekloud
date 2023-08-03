@@ -12,17 +12,17 @@ kind: ReplicaSet
 metadata:
   name: nginx-replicaset
   labels:
-    app: nginx-app
+    app: nginx_app
     type: front-end
 spec:
   replicas: 4
   selector:
     matchLabels:
-      app: nginx-app
+      app: nginx_app
   template:
     metadata:
       labels:
-        app: nginx-app
+        app: nginx_app
     spec:
       containers:
       - image: nginx:latest
