@@ -1,3 +1,35 @@
+<h2>Create a ReplicSet in Kubernetes Cluster</h2>
+Q) The Nautilus DevOps team is going to deploy some applications on kubernetes cluster as they are planning to migrate some of their existing applications there. Recently one of the team members has been assigned a task to write a template as per details mentioned below:
+
+Create a ReplicaSet using nginx image with latest tag only and remember to mention tag i.e nginx:latest and name it as nginx-replicaset.
+Labels app should be nginx_app, labels type should be front-end.
+The container should be named as nginx-container; also make sure replicas counts are 4.
+
+Create a replicaset as below by creating an yaml file.
+```
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: front-end
+  labels:
+    app: nginx-app
+    type: front-end
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: nginx-app
+  template:
+    metadata:
+      labels:
+        app: nginx-app
+    spec:
+      containers:
+      - image: nginx:latest
+        name: nginx-container
+```
+
+
 <h2>Create Namespace in Kubernetes Cluster</h2>
 Q) The Nautilus DevOps team is planning to deploy some micro services on Kubernetes platform. The team has already set up a Kubernetes cluster and now they want set up some namespaces, deployments etc. Based on the current requirements, the team has shared some details as below:
 Create a namespace named dev and create a POD under it; name the pod dev-nginx-pod and use nginx image with latest tag only and remember to mention tag i.e nginx:latest.
