@@ -10,7 +10,7 @@ Create a replicaset as below by creating an yaml file.
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: front-end
+  name: nginx-replicaset
   labels:
     app: nginx-app
     type: front-end
