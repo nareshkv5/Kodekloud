@@ -2,8 +2,12 @@
 Q) The Nautilus DevOps team is going to deploy some applications on kubernetes cluster as they are planning to migrate some of their existing applications there. Recently one of the team members has been assigned a task to write a template as per details mentioned below:
 
 Create a ReplicaSet using nginx image with latest tag only and remember to mention tag i.e nginx:latest and name it as nginx-replicaset.
+
 Labels app should be nginx_app, labels type should be front-end.
+
 The container should be named as nginx-container; also make sure replicas counts are 4.
+
+<h4>FMU:The name tag under metadata is the replicaset name. And under the labels app is nginx_app & labels_type should be front_end</h4>
 
 Create a replicaset as below by creating an yaml file.
 ```
