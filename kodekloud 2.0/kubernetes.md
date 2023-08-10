@@ -1,3 +1,39 @@
+<h2>Create CronJob in Kubernetes</h2>
+Q) There are some jobs/tasks that need to be run regularly on different schedules. Currently the Nautilus DevOps team is working on developing some scripts that will be executed on different schedules, but for the time being the team is creating some cron jobs in Kubernetes cluster with some dummy commands (which will be replaced by original scripts later). Create a cronjob as per details given below:
+
+Create a cronjob named xfusion.
+
+Set Its schedule to something like */12 * * * *, you set any schedule for now.
+
+Container name should be cron-xfusion.
+Use nginx image with latest tag only and remember to mention the tag i.e nginx:latest.
+Run a dummy command echo Welcome to xfusioncorp!.
+Ensure restart policy is OnFailure.
+
+a) For the above one we have to create a yaml file which is as below and apply that yaml file
+
+```
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: xfusion
+spec:
+  schedule: "*/12 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: cron-xfusion
+            image: nginx:latest
+            imagePullPolicy: IfNotPresent
+            command:
+            - /bin/sh
+            - -c
+            - echo Welcome to xfusioncorp!
+          restartPolicy: OnFailure
+```
+
 <h2>Create a ReplicSet in Kubernetes Cluster</h2>
 Q) The Nautilus DevOps team is going to deploy some applications on kubernetes cluster as they are planning to migrate some of their existing applications there. Recently one of the team members has been assigned a task to write a template as per details mentioned below:
 
