@@ -10,10 +10,11 @@ Use nginx image with latest tag only and remember to mention the tag i.e nginx:l
 Run a dummy command echo Welcome to xfusioncorp!.
 Ensure restart policy is OnFailure.
 
+a) For the above one we have to create a yaml file which is as below and apply that yaml file or we can use the imperative command. If we have to pass command we should use -- and then pass the arguments as below imperative command.
+
 ```
- kubectl create cj  xfusion --image=nginx:latest --schedule='*/12 * * * *' -- "echo Welcome to xfusioncorp!"
+ kubectl create cj  xfusion1 --image=nginx:latest --schedule='*/12 * * * *' -- "/bin/sh" "-c" "echo Welcome to xfusioncorp!"
 ```
-a) For the above one we have to create a yaml file which is as below and apply that yaml file
 
 ```
 apiVersion: batch/v1
