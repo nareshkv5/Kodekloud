@@ -177,4 +177,31 @@ sudo groupadd nautilus_admin_users
 
 sudo useradd -g nautilus_admin_users kano
 ```
+<h2>15/04/2024 - Countdown job in Kubernetes</h2>
+Q)The Nautilus DevOps team is working on to create few jobs in Kubernetes cluster. They might come up with some real scripts/commands to use, but for now they are preparing the templates and testing the jobs with dummy commands. Please create a job template as per details given below:
 
+Create a job countdown-xfusion.
+
+The spec template should be named as countdown-xfusion (under metadata), and the container should be named as container-countdown-xfusion
+
+Use image fedora with latest tag only and remember to mention tag i.e fedora:latest, and restart policy should be Never.
+
+Use command sleep 5
+
+Note: The kubectl utility on jump_host has been configured to work with the kubernetes cluster.
+```
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: countdown-xfusion
+spec:
+  template:
+    metadata:
+       name: countdown-xfusion
+    spec:
+      containers:
+      - name: container-countdown-xfusion
+        image: fedora:latest
+        command: ['sleep', '5']
+      restartPolicy: Never
+```
